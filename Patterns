@@ -1,0 +1,106 @@
+1)  *****
+    *****
+    *****
+    *****
+    *****
+Solution : 
+Java :
+
+public class Pattern1 {
+    public static void main(String[] args) {
+        pattern1(5); // 
+    }
+    static void pattern1(int n){
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+               System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Python :
+
+def pattern_1(n):
+    for row in range(1,n+1):
+        # print row number of stars
+        for col in range(1,n+1):
+            print("*" , end="")
+            
+        print()
+        
+pattern_1(5)
+---------------------------------------------------------------------------
+
+2)
+    *
+    **
+    ***
+    ****
+    *****
+
+Java :
+public class Main{
+    public static void main(String[] args){
+        pattern2(5);
+    }
+    static void pattern2(int n){
+        for (int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Python :
+
+def pattern_2(n):
+    for row in range(1,n+1):
+        # print row number of stars
+        for col in range(1,row+1):
+            print("*" , end="")
+            
+        print()
+        
+pattern_2(5)
+
+----------------------------------------------------------------------
+3)
+*****
+****
+***
+**
+*
+
+Java :
+public class Main{
+    public static void main(String[] args){
+        pattern3(5);
+    }
+    static void pattern3(int n){
+        for (int i=n;i>=1;i--){
+            for(int j=1;j<=i;j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Python :
+
+def pattern3(n):
+    for row in range(1,n+1):
+        for col in range(1,n-row+2):
+            print("*",end="")
+            
+        print()
+        
+pattern3(5)
+
+--------------------------------------------------------------------------
+
+
