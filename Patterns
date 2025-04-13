@@ -103,4 +103,91 @@ pattern3(5)
 
 --------------------------------------------------------------------------
 
+4)
+    1
+    1 2
+    1 2 3
+    1 2 3 4
+    1 2 3 4 5
+
+Java :
+public class Main{
+    public static void main(String[] args){
+        pattern4(5);
+    }
+    static void pattern4(int n){
+        for (int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print(j +" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Python:
+
+def pattern4(n):
+    for row in range(1,n+1):
+        for col in range(1,row+1):
+            print(col,end="")
+            
+        print()
+        
+pattern4(5)
+
+---------------------------------------------------------
+5)
+
+
+    *
+    **
+    ***
+    ****
+    *****
+    ****
+    ***
+    **
+    *
+
+Java :
+
+public class Main{
+    public static void main(String[] args){
+        pattern5(5);
+    }
+    static void pattern5(int n){
+        for (int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for (int i=n-1;i>=1;i--){
+            for(int j=i;j>=1;j--){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+Python :
+
+def pattern5(n):
+    #upper half including middle row
+    for row in range(1,n+1):
+        for col in range(1,row+1):
+            print("*",end="")
+            
+        print()
+    # lower half
+        
+    for row in range(n-1,0,-1):
+        for col in range(1,row+1):
+            print("*",end="")
+        print()
+        
+pattern5(5)
+
 
