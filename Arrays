@@ -1,0 +1,94 @@
+1)
+https://leetcode.com/problems/build-array-from-permutation/
+
+Java :
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int n=nums.length;
+        int[] ans=new int[n];
+        for (int i=0;i<=n-1;i++){
+          ans[i]=nums[nums[i]];
+        }
+        return ans;
+    }   
+}
+
+Python :
+
+class Solution:
+    def buildArray(self, nums: List[int]) -> List[int]:
+       return [nums[nums[i]]for i in range(len(nums))]
+
+---------------------------------------------------------------------------------------
+2)
+https://leetcode.com/problems/concatenation-of-array/
+
+Java :
+
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int n=nums.length;
+        int[] ans=new int[2*n];
+        for(int i=0;i<n;i++){
+            ans[i]=nums[i];
+            ans[i+n]=nums[i];
+        }
+        return ans;
+    }
+}
+
+Python :
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        return nums+nums
+
+------------------------------------------------------------------------------------------
+3)
+https://leetcode.com/problems/running-sum-of-1d-array/
+Java :
+class Solution {
+    public int[] runningSum(int[] nums) {
+       int n=nums.length;
+       int current_sum=0;
+       int[] ans=new int[n];
+       for(int i=0;i<n;i++){
+        current_sum +=nums[i];
+        ans[i]=current_sum;
+       }
+       return ans;
+    }
+}
+
+Python :
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
+        ans=[]
+        current_sum=0
+        for num in nums:
+            current_sum +=num
+            ans.append(current_sum)
+        return ans
+
+-----------------------------------------------------------------------------
+4)
+https://leetcode.com/problems/richest-customer-wealth/
+Java:
+
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int max_wealth=0;
+        for(int[] customer : accounts){
+            int wealth=0;
+            for(int money:customer){
+                wealth +=money;
+            }
+            max_wealth = Math.max(max_wealth,wealth);
+        }
+        return max_wealth;
+    }
+}
+
+Python:
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        return max(sum(customer) for customer in accounts)
