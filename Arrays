@@ -119,7 +119,7 @@ class Solution:
         return max(sum(customer) for customer in accounts)
 
 --------------------------------------------------------------------------5)
-https://leetcode.com/problems/shuffle-the-array/
+5)https://leetcode.com/problems/shuffle-the-array/
 Java:
 class Solution {
     public int[] shuffle(int[] nums, int n) {
@@ -140,3 +140,133 @@ class Solution:
             result.append(nums[i+n])
         return result
 ------------------------------------------------------------------------------
+6)
+https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+Java:
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> result= new ArrayList<>();
+        int max=0;
+        for(int candy:candies){
+           if(candy >  max) max=candy;
+        }
+        for(int candy:candies){
+            result.add(candy+extraCandies >= max);
+        }
+        return result;
+    }
+}
+Python:
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        max_candies=max(candies)
+        result=[]
+        for candy in candies:
+            result.append(candy+extraCandies >=max_candies)
+        return result
+
+-----------------------------------------------------------------------------------------------------------------------------
+7)
+https://leetcode.com/problems/number-of-good-pairs/
+
+Java :
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+      int n=nums.length;
+      int count=0;
+      for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(nums[i]==nums[j]){
+                count++;
+            }
+        }
+      } 
+      return count; 
+    }
+}
+
+Python:
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        count=0
+        n=len(nums)
+        for i in range(n):
+            for j in range(i+1,n):
+                if nums[i]==nums[j]:
+                    count+=1
+        return count
+--------------------------------------------------------------------------------------------------------------------------
+8)https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
+Java:
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int n=nums.length;
+        int[] result=new int[n];
+        for(int i=0;i<n;i++){
+            int count=0;
+            for(int j=0;j<n;j++){
+                if (nums[j]<nums[i]){
+                    count++;
+                }
+            }
+            result[i]=count;
+        }
+        return result;
+    }
+}
+Python:
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        result=[]
+        for i in range(len(nums)):
+            count=0
+            for j in range(len(nums)):
+                if nums[j]<nums[i]:
+                    count+=1
+            result.append(count)
+        return result
+-----------------------------------------------------------------------------------------------------------------------------
+9)https://leetcode.com/problems/create-target-array-in-the-given-order/
+Java:
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        int n=nums.length;
+        List<Integer> targetList=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            targetList.add(index[i],nums[i]);
+        }
+        int[] target=new int[targetList.size()];
+        for(int i=0;i<target.length;i++){
+            target[i]=targetList.get(i);
+        }
+        return target;
+
+    }
+}
+Python:
+class Solution:
+    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
+        target=[]
+        for i in range(len(nums)):
+            target.insert(index[i],nums[i])
+        return target
+----------------------------------------------------------------------------------------------------------------------------------
+10)
+https://leetcode.com/problems/check-if-the-sentence-is-pangram/
+Java:
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        Set<Character> letters=new HashSet<>();
+        for(char c:sentence.toCharArray()){
+            letters.add(c);
+        }
+        return letters.size()==26;
+    }
+}
+Python:
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        return len(set(sentence))==26
+-------------------------------------------------------------------------------------------------------------------------------
+
+        
