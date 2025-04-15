@@ -718,10 +718,349 @@ def pattern16(n):
 pattern16(5)
 -------------------------------------------------------------------------------------
 
+17)
+      1
+     212
+    32123
+   4321234
+    32123
+     212
+      1
+
+Java:
+public class Main
+{
+	public static void main(String[] args) {
+		pattern17(4);
+	}
+	static void pattern17(int n){
+	    // upper Half
+	    for(int i=1;i<n+1;i++){
+	        for(int j=1;j<=n-i;j++){
+	            System.out.print(" ");
+	        }
+	        // left numbers
+	        for (int j = i; j >= 1; j--) {
+                System.out.print(j);
+            }
+
+            // right numbers
+            for (int j = 2; j <= i; j++) {
+                System.out.print(j);
+            }
+
+            System.out.println();
+	        
+	    }
+	    // Lower Half
+        for (int i = n - 1; i >= 1; i--) {
+            // spaces
+            for (int s = 1; s <= n - i; s++) {
+                System.out.print(" ");
+            }
+
+            // left numbers
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j);
+            }
+
+            // right numbers
+            for (int j = 2; j <= i; j++) {
+                System.out.print(j);
+            }
+
+            System.out.println();
+        }
+	}
+}
+
+Python:
+def pattern17(n):
+    # upper half
+    for i in range(1, n + 1):
+        print(" " * (n - i), end="")
+        for j in range(i, 0, -1):  # left side
+            print(j, end="")
+        for j in range(2, i + 1):  # right side
+            print(j, end="")
+        print()  # newline after each row
+
+    # lower half
+    for i in range(n - 1, 0, -1):
+        print(" " * (n - i), end="")
+        for j in range(i, 0, -1):
+            print(j, end="")
+        for j in range(2, i + 1):
+            print(j, end="")
+        print()  # newline after each row
+
+# Call the function
+pattern17(4)
+
+-----------------------------------------------------------------------------------------------------
+18)
+      **********
+      ****  ****
+      ***    ***
+      **      **
+      *        *
+      *        *
+      **      **
+      ***    ***
+      ****  ****
+      **********
+Java:
+public class StarPattern {
+    public static void main(String[] args) {
+        int n = 5;
+
+        // Top half
+        for (int i = 0; i < n; i++) {
+            int stars = n - i;
+            int spaces = i * 2;
+
+            for (int j = 0; j < stars; j++) System.out.print("*");
+            for (int j = 0; j < spaces; j++) System.out.print(" ");
+            for (int j = 0; j < stars; j++) System.out.print("*");
+
+            System.out.println();
+        }
+
+        // Bottom half
+        for (int i = 0; i < n; i++) {
+            int stars = i + 1;
+            int spaces = (n - i - 1) * 2;
+
+            for (int j = 0; j < stars; j++) System.out.print("*");
+            for (int j = 0; j < spaces; j++) System.out.print(" ");
+            for (int j = 0; j < stars; j++) System.out.print("*");
+
+            System.out.println();
+        }
+    }
+}
+
+Python:
+def pattern18(n):
+    #top half
+    for i in range(n):
+        stars=n-i
+        spaces=i*2
+        print("*" * stars + " " * spaces + "*" * stars)
+        
+    #bottom half
+    for i in range(n):
+        stars=i+1
+        spaces=(n-i-1)*2
+        print("*" * stars + " " * spaces + "*" * stars)
+        
+pattern18(5)
+
+--------------------------------------------------------------------------------------------
+19)
+       *        *
+       **      **
+       ***    ***
+       ****  ****
+       **********
+       ****  ****
+       ***    ***
+       **      **
+       *        *
+
+Python:
+def pattern19(n):
+    # Top half (excluding the middle line)
+    for i in range(1, n):
+        # Left stars
+        print("*" * i, end="")
+
+        # Middle spaces
+        print(" " * (2 * (n - i)), end="")
+
+        # Right stars
+        print("*" * i)
+
+    # Middle line (full stars)
+    print("*" * (2 * n))
+
+    # Bottom half
+    for i in range(n - 1, 0, -1):
+        # Left stars
+        print("*" * i, end="")
+
+        # Middle spaces
+        print(" " * (2 * (n - i)), end="")
+
+        # Right stars
+        print("*" * i)
+
+pattern19(5)
+
+Java :
+public class Pattern19 {
+    public static void main(String[] args) {
+        int n = 5;
+
+        // Top half (excluding middle line)
+        for (int i = 1; i < n; i++) {
+            // Left stars
+            for (int j = 0; j < i; j++) System.out.print("*");
+
+            // Middle spaces
+            for (int j = 0; j < 2 * (n - i); j++) System.out.print(" ");
+
+            // Right stars
+            for (int j = 0; j < i; j++) System.out.print("*");
+
+            System.out.println();
+        }
+
+        // Middle line
+        for (int j = 0; j < 2 * n; j++) System.out.print("*");
+        System.out.println();
+
+        // Bottom half
+        for (int i = n - 1; i >= 1; i--) {
+            // Left stars
+            for (int j = 0; j < i; j++) System.out.print("*");
+
+            // Middle spaces
+            for (int j = 0; j < 2 * (n - i); j++) System.out.print(" ");
+
+            // Right stars
+            for (int j = 0; j < i; j++) System.out.print("*");
+
+            System.out.println();
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------
+20)
+       ****
+       *  *
+       *  *
+       *  *
+       ****
+
+Java:
+public class Main{
+    public static void main(String[] args){
+        pattern20(5);
+    }
+    static void pattern20(int n){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i==0 || j==0 || i==n-1 || j==n-1){
+                    System.out.print("*");
+                }else{
+                    System.out.print(" ");
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+
+python:
+def pattern20(n):
+    
+     # Number of rows and columns
+
+    for i in range(n):
+        for j in range(n):
+        # Print '*' at the border or center
+            if i == 0 or i == n - 1 or j == 0 or j == n - 1:
+                print('*', end='')
+            else:
+                print(' ', end='')
+        print()
+pattern20(5)
+
+--------------------------------------------------------------------------------------------------------------------
+
+21)
+
+1
+2  3
+4  5  6
+7  8  9  10
+11 12 13 14 15
+
+Java :
+public class Main{
+    public static void main(String[] args){
+        pattern21(5);
+    }
+    static void pattern21(int n){
+        int num=1;
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print(num + " ");
+                num++;
+                
+            }
+            System.out.println();
+        }
+    }
+}
+
+Python:
+
+def pattern21(n):
+    num=1
+    for i in range(1,n+1):
+        for j in range(1,i+1):
+            print(num,end=" ")
+            num+=1
+        print()
+pattern21(5)
+
+----------------------------------------------------------------------------------
+
+22)
+1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1
 
 
+Java:
+public class Main{
+    public static void main(String[] args){
+        pattern22(5);
+    }
+    static void pattern22(int n){
+       
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                if ((i + j) % 2 == 0) {
+                    System.out.print("1 ");
+                } else {
+                    System.out.print("0 ");
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+}
+Python:
 
+def pattern22(n):
+    
+    for i in range(1,n+1):
+        for j in range(1,i+1):
+            if (i+j)%2==0 :
+                print(" 1 ",end="")
+            else:
+                print(" 0 ",end="")
+        print()
+pattern22(5)
 
-
+---------------------------------------------------------------------------------------------------------
 
 
