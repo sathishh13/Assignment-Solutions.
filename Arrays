@@ -269,4 +269,54 @@ class Solution:
         return len(set(sentence))==26
 -------------------------------------------------------------------------------------------------------------------------------
 
-        
+11)
+https://leetcode.com/problems/count-items-matching-a-rule/
+Java:
+class Solution {
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        int index;
+        if(ruleKey.equals("type")){
+            index=0;
+        }else if(ruleKey.equals("color")){
+            index=1;
+        }else{
+            index=2;
+        }
+        int count=0;
+        for(List<String> item : items){
+            if(item.get(index).equals(ruleValue)){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+------------------------------------------------------------------------------------------------------
+12)
+https://leetcode.com/problems/find-the-highest-altitude/
+Java
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int altitude=0;
+        int max_altitude=0;
+        for(int g:gain){
+            altitude +=g;
+            max_altitude=Math.max(max_altitude,altitude);
+        }
+        return max_altitude;
+    }
+}
+-----------------------------------------------------------------------------------------------
+13)
+https://leetcode.com/problems/flipping-an-image/
+
+Python:
+class Solution:
+    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
+        for row in image:
+            n=len(row)
+            for i in range((n+1)//2):
+                #swap and invert the ith and n-1-i th 
+                row[i],row[n-1-i]=1-row[n-1-i],1-row[i]
+        return image
+
